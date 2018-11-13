@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+            android:paddingLeft="10dp"
+            android:text="标题"
+            android:id="@+id/tv_title"
+            android:background="@android:color/holo_green_dark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+
+    <TextView android:layout_width="match_parent"
+              android:id="@+id/tv_content"
+              android:text="内容"
+              android:textSize="18sp"
+              android:paddingLeft="20dp"
+              android:gravity="center_vertical"
+              android:background="@android:color/holo_red_dark"
+              app:layout_constraintTop_toBottomOf="@id/tv_title"
+              android:layout_height="50dp"/>
+
+</android.support.constraint.ConstraintLayout>
