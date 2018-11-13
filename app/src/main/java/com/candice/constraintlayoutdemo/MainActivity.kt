@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.util.Log
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val data = initData()
         Log.e("TAG", "dat>>>$data")
 //        val dataBean= Gson().fromJson<DataBean>(data, object : TypeToken<List<DataBean>>() {}.type)
-        val list = GsonToList(data, DataBean::class.java)
+        val list = Utils().gsonToList<DataBean>(gsonString = data, type = object :TypeToken<List<DataBean>>() {}.type)
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val adapter = MyAdapter(this )
         adapter.setList(list)

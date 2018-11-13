@@ -1,8 +1,7 @@
 package com.candice.constraintlayoutdemo
 
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-
+import java.lang.reflect.Type
 
 
 /**
@@ -14,26 +13,30 @@ import com.google.gson.reflect.TypeToken
  * @since:V$VERSION
  * @desc:com.candice.constraintlayoutdemo
  */
+class Utils{
+    private var gson:Gson = Gson()
 
-fun <T> GsonToList(gsonString: String, cls: Class<T>): List<T>? {
-    var list: List<T>? = null
-    val gson = Gson()
-    if (gson != null) {
-        list = gson.fromJson(gsonString, object : TypeToken<List<T>>() {
+    fun <T> gsonToList(gsonString: String, type: Type): List<T>? {
 
-        }.type)
+        var list: List<T>? = null
+
+        if (gson != null) {
+            list = gson.fromJson(gsonString, type )
+        }
+        return list
     }
-    return list
+//
+//
+//    fun <T> GsonToArrayList(gsonString: String, cls: Class<T>): ArrayList<T>? {
+//        var list: ArrayList<T>? = null
+//        val gson = Gson()
+//        if (gson != null) {
+//            list = gson.fromJson(gsonString, object : TypeToken<ArrayList<T>>() {
+//
+//            }.type)
+//        }
+//        return list
+//    }
 }
 
 
-fun <T> GsonToArrayList(gsonString: String, cls: Class<T>): ArrayList<T>? {
-    var list: ArrayList<T>? = null
-    val gson = Gson()
-    if (gson != null) {
-        list = gson.fromJson(gsonString, object : TypeToken<ArrayList<T>>() {
-
-        }.type)
-    }
-    return list
-}
