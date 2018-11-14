@@ -8,10 +8,11 @@
             android:id="@+id/v_b"
             android:background="@android:color/darker_gray"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="10dp"></View>
 
     <TextView android:layout_width="match_parent"
-              android:id="@+id/tv_content1"
+              android:id="@+id/tv_content"
               android:text="内容"
               android:textSize="18sp"
               android:paddingLeft="20dp"

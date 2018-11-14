@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 //        val dataBean= Gson().fromJson<DataBean>(data, object : TypeToken<List<DataBean>>() {}.type)
         val list = Utils().gsonToList<DataBean>(gsonString = data, type = object :TypeToken<List<DataBean>>() {}.type)
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val adapter = MyAdapter(this )
+        val adapter = DataAdapter(this )
         adapter.setList(list)
         rv.layoutManager = manager
         rv.adapter = adapter

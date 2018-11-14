@@ -20,7 +20,7 @@ import android.widget.TextView
 class MyAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val TYPE_NO_TITLE: Int = 1
     private val TYPE_CONTENT: Int = 0
-    private var menuList =  ArrayList<String>()
+    private var menuList = ArrayList<String>()
 
     private fun getMenuSize(): Int {
         for (i in list!!.indices) {
@@ -36,44 +36,32 @@ class MyAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
         return if (p1 == TYPE_NO_TITLE) {
-            val view = LayoutInflater.from(context).inflate(R.layout.item_layout2, p0, false)
+            val view = LayoutInflater.from(context).inflate(R.layout.item_layout_content, p0, false)
             MyHolder(view)
         } else {
-            val view = LayoutInflater.from(context).inflate(R.layout.item_layout, p0, false)
+            val view = LayoutInflater.from(context).inflate(R.layout.item_layout_title, p0, false)
             MyViewHolder(view)
         }
     }
 
     override fun getItemCount(): Int {
-        val listSize:Int = if (list == null) 0 else list!!.size
+        val listSize: Int = if (list == null) 0 else list!!.size
         return listSize + menuList.size
     }
 
     override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-//        val viewType = getItemViewType(p1)
-//        val menu = menuList[p1]
-//        val dataBean = list!![1]
-//        when (viewType) {
-//            TYPE_NO_TITLE ->
-            if (p0 is MyHolder) {
-                p0.tvContent1?.text = "11111"
-            }
-//            TYPE_CONTENT -> if (p0 is MyViewHolder) {
-////                p0.tvTitle?.text = dataBean.title
-//                p0.tvContent?.text = "aaaaaa"
-//            }
-
-
-//        }
+        if (p0 is MyHolder) {
+            p0.tvContent1?.text = "11111"
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
-//        val dataBean = list!![position]
-//        return if (TextUtils.isEmpty(dataBean.title)) {
-            return TYPE_NO_TITLE
-//        } else {
-//            TYPE_CONTENT
-//        }
+        if (position == 0) {
+          val  dataBean = list!![position]
+            val menus = dataBean.menus
+//            position = position -menus.size
+        }
+        return TYPE_NO_TITLE
     }
 
     private var list: List<DataBean>? = null
@@ -84,7 +72,7 @@ class MyAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
 }
 
 class MyHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
-    val tvContent1 = view?.findViewById<TextView>(R.id.tv_content1)
+    val tvContent1 = view?.findViewById<TextView>(R.id.tv_content)
 
 }
 
