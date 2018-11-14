@@ -1,23 +1,29 @@
-package com.candice.constraintlayoutdemo
+package com.candice.constraintlayoutdemo;
 
-import android.support.test.runner.AndroidJUnit4
-import com.google.gson.reflect.TypeToken
-import org.junit.Test
-import org.junit.runner.RunWith
+import android.support.test.runner.AndroidJUnit4;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
- * Instrumented test, which will execute on an Android device.
+ * <br>
+ * function:
+ * <p>
  *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * @author:HubertYoung
+ * @date:2018/11/14 22:40
+ * @since:V$VERSION
+ * @desc:com.candice.constraintlayoutdemo
  */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+@RunWith(AndroidJUnit4.class)
+public class ExampleInstrumentedTestTest {
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-//        val appContext = InstrumentationRegistry.getTargetContext()
-//        assertEquals("com.candice.constraintlayoutdemo", appContext.packageName)
-        val data = "[\n" +
+    public void useAppContext() {
+        String gsonString = "[\n" +
                 "  {\n" +
                 "    \"title\": \"安全工具设置\",\n" +
                 "    \"menus\": [\n" +
@@ -73,10 +79,9 @@ class ExampleInstrumentedTest {
                 "      }\n" +
                 "    ]\n" +
                 "  }\n" +
-                "]"
-        val list = Utils().gsonToList<DataBeanNew>(data, object : TypeToken<List<DataBeanNew>>() {
-        }.type)
-//        assertEquals(list?.size, 3)
-
+                "]";
+        List<DataBeanNew> lists = new Utils().<DataBeanNew>gsonToList(gsonString, new TypeToken<List<DataBeanNew>>() {
+        }.getType());
+        assertEquals(lists == null ? 0 : lists.size() ,3);
     }
 }

@@ -1,0 +1,57 @@
+[
+  {
+    "title": "安全工具设置",
+    "menus": [
+      {
+        "menusTitle":"mb000001",
+        "menusAction":"http1"
+      },
+      {
+        "menusTitle":"mb000002",
+        "menusAction":"http2"
+      },
+      {
+        "menusTitle":"mb000003",
+        "menusAction":"http3"
+      }
+    ]
+  },
+  {
+    "title": "账号密码安全",
+    "menus": [
+      {
+        "menusTitle":"mb000004",
+        "menusAction":"http4"
+      },
+      {
+        "menusTitle":"mb000005",
+        "menusAction":"http5"
+      },
+      {
+        "menusTitle":"mb000006",
+        "menusAction":"http6"
+      },
+      {
+        "menusTitle":"mb0000006",
+        "menusAction":"http06"
+      }
+    ]
+  },
+  {
+    "title": "",
+    "menus": [
+      {
+        "menusTitle":"mb0000007",
+        "menusAction":"http7"
+      },
+      {
+        "menusTitle":"mb0000008",
+        "menusAction":"http8"
+      },
+      {
+        "menusTitle":"mb0000009",
+        "menusAction":"http9"
+      }
+    ]
+  }
+]

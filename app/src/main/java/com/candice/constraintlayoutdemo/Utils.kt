@@ -1,7 +1,10 @@
 package com.candice.constraintlayoutdemo
 
+import android.text.TextUtils
 import com.google.gson.Gson
+import com.google.gson.JsonParser
 import java.lang.reflect.Type
+import java.util.*
 
 
 /**
@@ -15,15 +18,23 @@ import java.lang.reflect.Type
  */
 class Utils{
     private var gson:Gson = Gson()
-
     fun <T> gsonToList(gsonString: String, type: Type): List<T>? {
-
-        var list: List<T>? = null
-
-        if (gson != null) {
-            list = gson.fromJson(gsonString, type )
+        gson.serializeNulls()
+        var result = ArrayList<T>()
+        if (TextUtils.isEmpty(gsonString)) return result
+        return try {
+            if (null != gson) {
+                val array = JsonParser().parse(gsonString)
+                    .asJsonArray
+                for (elem in array) {
+                    result.add(gson.fromJson<T>(elem, type))
+                }
+            }
+            result
+        } catch (e: Exception) {
+            ArrayList()
         }
-        return list
+
     }
 //
 //
